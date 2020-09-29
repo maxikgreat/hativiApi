@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import path from 'path';
+import axios from './axios';
 
 const result = dotenv.config();
 if (result.error) throw result.error;
@@ -23,6 +24,16 @@ server.use(express.json());
     // server.get('*', (_, res) => {
     //   res.sendFile(path.join(__dirname, '../index.html'));
     // });
+
+    server.get('/test', async (req, res) => {
+      try {
+        const response = await axios.get('/search/nike');
+        console.log(response);
+        res.json(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    });
 
     server.listen(port, (err?: any) => {
       if (err) throw err;
