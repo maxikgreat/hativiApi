@@ -1,10 +1,11 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
-
-const instaUrl = 'https://instagramdimashirokovv1.p.rapidapi.com'
+const result = dotenv.config();
+if (result.error) throw result.error;
 
 const client = axios.create({
-  baseURL: instaUrl,
+  baseURL: process.env.INSTA_URL,
   responseType: 'json',
 });
 
@@ -12,13 +13,13 @@ client.interceptors.request.use(
   (configuration) => {
     let config = { ...configuration };
 
-    if (config.baseURL === instaUrl) {
+    if (config.baseURL === process.env.INSTA_URL) {
       config = {
         ...config,
         headers: {
           ...config.headers,
-          'x-rapidapi-host': 'InstagramdimashirokovV1.p.rapidapi.com',
-          'x-rapidapi-key': '154036d22bmsh465d3a3758110ddp195036jsn2debbbbe3d78',
+          'x-rapidapi-host': process.env.RAPID_API_HOST,
+          'x-rapidapi-key': process.env.RAPID_API_KEY,
 	        'useQueryString': true
         },
       };

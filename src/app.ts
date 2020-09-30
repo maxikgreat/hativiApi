@@ -1,11 +1,5 @@
 import express from 'express';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import path from 'path';
 import axios from './axios';
-
-const result = dotenv.config();
-if (result.error) throw result.error;
 
 const port = process.env.PORT || 3001;
 const server = express();
@@ -28,10 +22,9 @@ server.use(express.json());
     server.get('/test', async (req, res) => {
       try {
         const response = await axios.get('/search/nike');
-        console.log(response);
         res.json(response.data);
       } catch (e) {
-        console.log(e);
+        res.status(500).send('Error')
       }
     });
 
