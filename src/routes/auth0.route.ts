@@ -1,8 +1,10 @@
-import { Router } from 'express'
-import { authorize } from '../controllers/auth0.controller';
+import { Router } from 'express';
+
+import { getUser } from '../controllers/auth0.controller';
+// import { checkToken } from './../middlewares/token.middleware';
 
 const router: Router = Router()
 
-router.get('/authorize', authorize);
+router.get('/users', getUser);
 
 export default router;
