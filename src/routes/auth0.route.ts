@@ -1,10 +1,9 @@
 import { Router } from 'express';
 
-import { getUser } from '../controllers/auth0.controller';
-// import { checkToken } from './../middlewares/token.middleware';
+import { getUsers } from '../controllers/auth0.controller';
 
 const router: Router = Router()
 
-router.get('/users', getUser);
+router.get('/users', getUsers);
 
 export default router;

@@ -10,7 +10,6 @@ const axiosAuth0 = axios.create({
 axiosAuth0.interceptors.request.use(
   (configuration) => {
     let config = { ...configuration };
-
     config = {
       ...config,
       headers: {
@@ -20,7 +19,6 @@ axiosAuth0.interceptors.request.use(
         },
       },
     }
-
     return config;
   },
   error => Promise.reject(error),

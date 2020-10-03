@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { axiosAuth0 as axios } from '../axios/axiosAuth0';
 
-const getUser = async (req: Request, res: Response) => {
+const getUsers = async (req: Request, res: Response) => {
   try {
     const { data } = await axios.get('/api/v2/users');
     return res.json(data);
@@ -20,4 +20,4 @@ const setUserMetadata = async (req: Request, res: Response) => {
   }
 };
 
-export { getUser };
+export { getUsers };
