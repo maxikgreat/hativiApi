@@ -2,6 +2,12 @@ import { Request, Response } from 'express';
 
 import { axiosAuth0 as axios } from '../axios/axiosAuth0';
 
+interface RequestWithUserId extends Request {
+  params: {
+    userId: string,
+  },
+}
+
 const getUsers = async (req: Request, res: Response) => {
   try {
     const { data } = await axios.get('/api/v2/users');
@@ -10,14 +16,6 @@ const getUsers = async (req: Request, res: Response) => {
     // console.log(e);
     return res.status(400).end('error');
   }
-};
-
-const setUserMetadata = async (req: Request, res: Response) => {
-  try {
-
-  } catch (e) {
-
-  }
-};
+}
 
 export { getUsers };

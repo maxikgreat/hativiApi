@@ -1,5 +1,6 @@
 import express from 'express';
 import auth0Routes from './routes/auth0.route';
+import instaRoutes from './routes/insta.route';
 
 // moved exec to package.json
 
@@ -7,11 +8,13 @@ import auth0Routes from './routes/auth0.route';
 // const result = dotenv.config();
 // if (result.error) throw result.error;
 
+
 const port = process.env.PORT || 3001;
 const server = express();
 
 server.use(express.json());
-server.use(auth0Routes);
+server.use('/api/v1/auth0', auth0Routes);
+server.use('/api/v1/insta', instaRoutes);
 
 (async () => {
   try {
