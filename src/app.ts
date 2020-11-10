@@ -1,4 +1,6 @@
 import express from 'express';
+import cors from 'cors';
+
 import auth0Routes from './routes/auth0.route';
 import instaRoutes from './routes/insta.route';
 
@@ -12,6 +14,7 @@ import instaRoutes from './routes/insta.route';
 const port = process.env.PORT || 3001;
 const server = express();
 
+server.use(cors());
 server.use(express.json());
 server.use('/api/v1/auth0', auth0Routes);
 server.use('/api/v1/insta', instaRoutes);
