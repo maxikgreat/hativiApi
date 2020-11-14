@@ -1,21 +1,24 @@
 import { Request, Response } from 'express';
 
 import { axiosAuth0 as axios } from '../axios/axiosAuth0';
+import { UserMetadata } from '../types/auth0';
 
-interface RequestWithUserId extends Request {
-  params: {
-    userId: string,
-  },
+interface MetadataBody {
+  userId: string,
+  metadata: UserMetadata,
 }
 
-const getUsers = async (req: Request, res: Response) => {
+
+const changeMetadata = async (req: Request, res: Response) => {
   try {
-    const { data } = await axios.get('/api/v2/users');
-    return res.json(data);
-  } catch (e) {
-    // console.log(e);
-    return res.status(400).end('error');
+    const { userId, metadata }: MetadataBody = req.body;
+    const response = await axios.patch(`/api/v2/users/${userId}`, { user_metadata: metadata });
+    console.log('user', response.data.app_metadata.roles);
+    res.end('ok');
+  } catch (error) {
+    console.log('error', error);
+    return res.json('Error');
   }
 }
 
-export { getUsers };
+export { changeMetadata };

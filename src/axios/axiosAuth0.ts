@@ -15,7 +15,7 @@ axiosAuth0.interceptors.request.use(
       headers: {
         common: {
           ...config.headers.common,
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
       },
     }
@@ -26,7 +26,8 @@ axiosAuth0.interceptors.request.use(
 
 axiosAuth0.interceptors.response.use(
   response => response,
-  async ({ response, config }) => {
+  async (error) => {
+    const { response, config } = error;
     if (response.status === 401) { // if no token
       try {
         const { data } = await axiosAuth0.post<IToken>('/oauth/token', {
@@ -42,6 +43,7 @@ axiosAuth0.interceptors.response.use(
         return Promise.reject(e);
       }
     }
+    return Promise.reject(error);
   }
 )
 
