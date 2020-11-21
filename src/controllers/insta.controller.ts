@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 
-import { AxiosResponse } from 'axios';
 import { axiosInsta as axios } from '../axios/axiosInsta';
 import { InstaUser } from '../types/insta';
 
@@ -80,6 +79,9 @@ const data = {
 const checkUser = async (req: RequestWithNickname, res: Response) => {
   try {
     const { nickname } = req.body;
+    if (!nickname) {
+      return res.status(400).json({ message: 'Nickname is required '});
+    }
 
     // 5 requests in a day
 
