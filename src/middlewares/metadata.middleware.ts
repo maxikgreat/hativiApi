@@ -14,11 +14,11 @@ export const checkMetadata = (req: Request, res: Response, next: NextFunction) =
         story: yup.number().required(),
         post: yup.number().required()
       }),
-      desc: yup.string().required(),
+      desc: yup.string().min(30).required(),
       contactEmail: yup.string().email().required(),
       messengers: yup.object().shape({
-        whatsApp: yup.string().required(),
-        facebook: yup.string().required(),
+        whatsApp: yup.string(),
+        facebook: yup.string()
       })
     })
   });
