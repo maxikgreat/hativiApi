@@ -12,4 +12,3 @@ export const checkJwt = jwt({
   issuer: 'https://maxikgreat.eu.auth0.com/',
   algorithms: ['RS256'],
 });
-

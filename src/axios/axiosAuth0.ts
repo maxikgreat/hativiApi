@@ -8,7 +8,7 @@ const axiosAuth0 = axios.create({
 });
 
 axiosAuth0.interceptors.request.use(
-  (configuration) => {
+  async (configuration) => {
     let config = { ...configuration };
     config = {
       ...config,
