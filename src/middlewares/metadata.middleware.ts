@@ -7,7 +7,6 @@ import { MetadataBody } from '../controllers/auth0.controller';
 export const checkMetadata = (req: Request, res: Response, next: NextFunction) => {
   const validationSchema = yup.object<MetadataBody>().shape({
     userId: yup.string().required(),
-    update: yup.string().required(),
     metadata: yup.object().required(),
   });
 
