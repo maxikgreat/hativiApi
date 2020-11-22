@@ -8,6 +8,11 @@ export interface MetadataBody {
   metadata: UserMetadata,
 }
 
+export interface EmailBody {
+  userId: string,
+  newEmail: string,
+}
+
 const changeMetadata = async (req: Request, res: Response) => {
   try {
     const { userId, metadata }: MetadataBody = req.body;
@@ -34,4 +39,16 @@ const changeMetadata = async (req: Request, res: Response) => {
   }
 }
 
-export { changeMetadata };
+const changeEmail = async (req: Request, res: Response) => {
+  try {
+    const { userId, newEmail }: EmailBody = req.body;
+    const response = await axios.patch(`/api/v2/users/${userId}`, { email: newEmail });
+    return res.status(response.status || 200).json({ message: 'Changed' });
+  } catch ({ response }) {
+    return res.status(response.status || 400).json({ 
+      message: response.data?.message ?? 'Internal Server Error'
+    });
+  }
+}
+
+export { changeMetadata, changeEmail };

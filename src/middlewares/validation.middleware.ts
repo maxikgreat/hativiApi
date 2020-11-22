@@ -1,4 +1,4 @@
-import { categories } from './../types/insta';
+import { categories } from '../types/insta';
 import { Request, Response, NextFunction } from 'express';
 import * as yup from 'yup';
 
