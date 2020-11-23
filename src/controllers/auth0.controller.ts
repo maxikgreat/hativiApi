@@ -13,6 +13,11 @@ export interface EmailBody {
   newEmail: string,
 }
 
+export interface NewPassBody {
+  userId: string,
+  email: string,
+}
+
 const changeMetadata = async (req: Request, res: Response) => {
   try {
     const { userId, metadata }: MetadataBody = req.body;
@@ -51,4 +56,21 @@ const changeEmail = async (req: Request, res: Response) => {
   }
 }
 
-export { changeMetadata, changeEmail };
+const changePass = async (req: Request, res: Response) => {
+  try {
+    const { userId }: NewPassBody = req.body;
+    const { data, status } = await axios.post(`/api/v2/tickets/password-change`, { 
+      user_id: userId, 
+      // TODO CHANGE IN PROD
+      // result_url: 'localhost:3000/setting' 
+    });
+
+    return res.status(status || 200).json(data);
+  } catch ({ response }) {
+    return res.status(response.status || 400).json({ 
+      message: response.data?.message ?? 'Internal Server Error'
+    });
+  }
+}
+
+export { changeMetadata, changeEmail, changePass };

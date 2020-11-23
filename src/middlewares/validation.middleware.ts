@@ -1,4 +1,3 @@
-import { categories } from '../types/insta';
 import { Request, Response, NextFunction } from 'express';
 import * as yup from 'yup';
 
@@ -30,4 +29,16 @@ const checkNewEmail = (req: Request, res: Response, next: NextFunction) => {
     }))
 }
 
-export { checkMetadata, checkNewEmail };
+const checkNewPass = (req: Request, res: Response, next: NextFunction) => {
+  const validationSchema = yup.object<MetadataBody>().shape({
+    userId: yup.string().required(),
+  });
+
+  validationSchema.validate(req.body)
+    .then(() => next())
+    .catch(() => res.status(400).json({ 
+        message: 'Incorrect body request',
+    }))
+}
+
+export { checkMetadata, checkNewEmail, checkNewPass };
