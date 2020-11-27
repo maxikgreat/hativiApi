@@ -103,7 +103,7 @@ const checkUser = async (req: RequestWithNickname, res: Response) => {
 
     return res.status(200).json(user);
   } catch ({ response }) {
-    if (response.status === 404) {
+    if (response?.status === 404) {
       return res.status(404).json({ message: 'Instagram user not found' });
     }
     return res.status(400).json({

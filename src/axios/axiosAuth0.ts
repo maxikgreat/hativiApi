@@ -28,7 +28,7 @@ axiosAuth0.interceptors.response.use(
   response => response,
   async (error) => {
     const { response, config } = error;
-    if (response.status === 401) { // if no token
+    if (response?.status === 401) { // if no token
       try {
         const { data } = await axiosAuth0.post<IToken>('/oauth/token', {
           grant_type: 'client_credentials',

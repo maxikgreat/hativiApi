@@ -37,9 +37,9 @@ const changeMetadata = async (req: Request, res: Response) => {
 
     const response = await axios.patch(`/api/v2/users/${userId}`, { user_metadata: metadata });
     return res.status(response.status || 200).json({ message: 'Changed' });
-  } catch ({ response }) {
-    return res.status(response.status || 400).json({ 
-      message: response.data?.message ?? 'Internal Server Error'
+  } catch (e) {
+    return res.status(e.response?.status || 400).json({
+      message: e.response?.data?.message ?? 'Internal Server Error'
     });
   }
 }
@@ -50,8 +50,8 @@ const changeEmail = async (req: Request, res: Response) => {
     const response = await axios.patch(`/api/v2/users/${userId}`, { email: newEmail });
     return res.status(response.status || 200).json({ message: 'Changed' });
   } catch ({ response }) {
-    return res.status(response.status || 400).json({ 
-      message: response.data?.message ?? 'Internal Server Error'
+    return res.status(response?.status || 400).json({
+      message: response?.data?.message ?? 'Internal Server Error'
     });
   }
 }
@@ -59,16 +59,16 @@ const changeEmail = async (req: Request, res: Response) => {
 const changePass = async (req: Request, res: Response) => {
   try {
     const { userId }: NewPassBody = req.body;
-    const { data, status } = await axios.post(`/api/v2/tickets/password-change`, { 
-      user_id: userId, 
+    const { data, status } = await axios.post(`/api/v2/tickets/password-change`, {
+      user_id: userId,
       // TODO CHANGE IN PROD
-      // result_url: 'localhost:3000/setting' 
+      // result_url: 'localhost:3000/setting'
     });
 
     return res.status(status || 200).json(data);
   } catch ({ response }) {
-    return res.status(response.status || 400).json({ 
-      message: response.data?.message ?? 'Internal Server Error'
+    return res.status(response?.status || 400).json({
+      message: response?.data?.message ?? 'Internal Server Error'
     });
   }
 }
