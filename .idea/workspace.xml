@@ -4,7 +4,6 @@
     <list default="true" id="b3766f37-7346-4918-8956-476bf1303ec2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/auth0.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/auth0.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/auth0.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/auth0.route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +37,7 @@
       <workItem from="1606416953971" duration="531000" />
       <workItem from="1606421829626" duration="2728000" />
       <workItem from="1606460756942" duration="52000" />
-      <workItem from="1606492921643" duration="7164000" />
+      <workItem from="1606492921643" duration="11282000" />
     </task>
     <servers />
   </component>

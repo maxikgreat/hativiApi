@@ -76,9 +76,7 @@ const changePass = async (req: Request, res: Response) => {
 const getBloggers = async (req: Request, res: Response) => {
   try {
     const { data, status } = await axios.get(`/api/v2/users?q=_exists_:user_metadata.instagram&search_engine=v3`);
-    setTimeout(() => {
-      return res.status(status || 200).json(data);
-    }, 3000);
+    return res.status(status || 200).json(data);
   } catch ({ response }) {
     return res.status(response?.status || 400).json({
       message: response?.data?.message ?? 'Internal Server Error'
