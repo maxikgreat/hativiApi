@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b3766f37-7346-4918-8956-476bf1303ec2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/insta.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/insta.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/auth0.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/auth0.route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,7 @@
       <workItem from="1606893402590" duration="30000" />
       <workItem from="1606934529588" duration="1554000" />
       <workItem from="1606979664307" duration="26000" />
+      <workItem from="1607164335599" duration="247000" />
     </task>
     <servers />
   </component>
