@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b3766f37-7346-4918-8956-476bf1303ec2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/auth0.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/auth0.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/insta.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/insta.controller.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,15 @@
       <workItem from="1606416953971" duration="531000" />
       <workItem from="1606421829626" duration="2728000" />
       <workItem from="1606460756942" duration="52000" />
-      <workItem from="1606492921643" duration="11282000" />
+      <workItem from="1606492921643" duration="11311000" />
+      <workItem from="1606678414774" duration="485000" />
+      <workItem from="1606720347242" duration="2000" />
+      <workItem from="1606762711585" duration="782000" />
+      <workItem from="1606806623401" duration="118000" />
+      <workItem from="1606846113304" duration="478000" />
+      <workItem from="1606893402590" duration="30000" />
+      <workItem from="1606934529588" duration="1554000" />
+      <workItem from="1606979664307" duration="26000" />
     </task>
     <servers />
   </component>
