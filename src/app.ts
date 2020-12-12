@@ -23,7 +23,6 @@ server.use('/api/v1/insta', instaRoutes);
 
 (async () => {
   try {
-    
     server.get('*', (_, res) => {
       res.sendFile(path.join(__dirname, '../index.html'));
     });
