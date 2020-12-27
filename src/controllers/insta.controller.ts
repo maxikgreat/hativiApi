@@ -6,20 +6,21 @@ import { InstaUser } from '../types/insta';
 
 interface RequestWithNickname extends Request{
   body: {
-    nickname: string
+    nickname: string,
+    forceCheck: boolean | undefined
   }
 }
 
 const checkUser = async (req: RequestWithNickname, res: Response) => {
   try {
-    const { nickname } = req.body;
+    const { nickname, forceCheck } = req.body;
     if (!nickname) {
       return res.status(400).json({ message: 'Username is required'});
     }
   
     const { data: users } = await axiosAuth0.get(`/api/v2/users?q=user_metadata.instagram.user.username:${nickname}&search_engine=v3`);
     
-    if (users.length > 0) {
+    if (users.length > 0 && !forceCheck) {
       return res.status(409).json({ message: 'Someone\'s already use this username'})
     }
     
